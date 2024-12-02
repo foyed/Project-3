@@ -1,0 +1,64 @@
+import java.util.Random;
+
+public class Tester {
+
+	public static void main(String[] args) {
+		
+		SortsAndSearching ss = new SortsAndSearching();
+		int[] sizes = {200000};
+        
+        for (int size : sizes) {
+        	 Random rand = new Random();
+             int[] array = new int[size];
+             for (int i = 0; i < size; i++) {
+                 array[i] = rand.nextInt(100000); 
+             }
+
+            // Bubble Sort
+             long startTime = System.currentTimeMillis();
+             ss.bubbleSort(array); 
+             long endTime = System.currentTimeMillis();
+             System.out.println("Bubble Sort for " + size + " elements: " + (endTime - startTime) + " ms");
+
+             // Selection Sort
+             startTime = System.currentTimeMillis();
+             ss.selectionSort(array);
+             endTime = System.currentTimeMillis();
+             System.out.println("Selection Sort for " + size + " elements: " + (endTime - startTime) + " ms");
+
+             // Insertion Sort
+             startTime = System.currentTimeMillis();
+             ss.insertionSort(array);
+             endTime = System.currentTimeMillis();
+             System.out.println("Insertion Sort for " + size + " elements: " + (endTime - startTime) + " ms");
+             
+             // Heap Sort
+             startTime = System.currentTimeMillis();
+             ss.heapSort(array);
+             endTime = System.currentTimeMillis();
+             System.out.println("Heap Sort for " + size + " elements: " + (endTime - startTime) + " ms");
+             
+             // Quick Sort
+             startTime = System.currentTimeMillis();
+             ss.quickSort(array, 0 , size - 1);
+             endTime = System.currentTimeMillis();
+             System.out.println("Quick Sort for " + size + " elements: " + (endTime - startTime) + " ms");
+             
+             // Shell Sort
+             startTime = System.currentTimeMillis();
+             ss.shellSort(array);
+             endTime = System.currentTimeMillis();
+             System.out.println("Shell Sort for " + size + " elements: " + (endTime - startTime) + " ms");
+             
+             // Merge Sort
+             startTime = System.currentTimeMillis();
+             ss.mergeSort(array, 0, size - 1);
+             endTime = System.currentTimeMillis();
+             System.out.println("Merge Sort for " + size + " elements: " + (endTime - startTime) + " ms");
+           
+             
+        }
+
+	}
+
+}
